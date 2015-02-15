@@ -25,5 +25,12 @@ function load_page(content) {
 			},
 			"html"
 		);
-	
+	change_active(content)
+}
+
+function change_active(content) {
+
+	document.getElementById("datasrc").className  = ""
+	document.getElementById("team").className  = ""
+	document.getElementById(content).className  = "active"
 }
