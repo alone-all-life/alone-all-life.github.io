@@ -1,1 +1,65 @@
-I really do not like to write HTML!!!!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Bootstrap core CSS -->
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link href="./css/my_css.css" rel="stylesheet">
+	<script src="./js/d3.min.js"></script>
+	<script src="./js/jquery-1.8.3.min.js"></script>
+	<script src="./js/main-page-hw-loader.js"></script>
+	<script src="./js/hw_2.js"></script>
+	<!-- Just for debugging purposes. Don't actually copy this line! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- title -->
+	<title>Personal Information</title>
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      	<div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          	<span class="sr-only">Toggle navigation</span>
+	          </button>
+	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">IE590-Homework</a>
+	        </div>
+    	</div>
+	</div>
+
+	<div class="container-fluid">
+	  	<div class="row">
+		    <div class="col-sm-3 col-md-2 sidebar">
+		      <ul id="sda" class="nav nav-sidebar">
+		        <li class="active"><a href="#"><strong>Homework</strong></a></li>
+		        <li><a href="#hw_1" onclick="javascript:load_homework(1)">Homework - 1</a></li>
+		        <li><a href="#hw_2" onclick="javascript:load_homework(2)">Homework - 2</a></li>
+		      </ul>
+		      <ul class="nav nav-sidebar">
+		        <li class="active"><a href="#"><strong>Ref.</strong></a></li>
+		       	<li><a href="#ref0" onclick="javascript:load_ref()">CSS Source</a></li>
+		       	<li></li>
+		      </ul>
+		    </div>
+		    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="homework-loader">
+		    	<!-- Load my homework here using ajax -->
+		    	<!-- Soooooo foolish -->
+		    	
+		    </div>
+		</div>
+	</div>
+
+</body>
+
+</html>
