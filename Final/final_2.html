@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/d3.min.js"></script>
+	<script src="../js/d3.tip.v0.6.3.js"></script>
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script src="../js/bootstrap-modal.js"></script>
+	<link href="../css/my_css.css" rel="stylesheet">
+	<!-- <script src="./js/hw_2.js"></script> -->
+
+
+	<!-- Just for debugging purposes. Don't actually copy this line! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- title -->
+	<title>Alone All Life</title>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-61822913-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</head>
+
+
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      	<div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          	<span class="sr-only">Toggle navigation</span>
+	          </button>
+	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">Alone All Life - IE590 - Project Team</a>
+	        </div>
+    	</div>
+	</div>
+	<div class="container-fluid">
+	  	<div class="row">
+	  		<div class="col-sm-3 col-md-3 my_right_side" align="center">
+				<div id="left">
+					 <input class="cb" type="checkbox" sid="0" checked>0</input><br/>
+					 <input class="cb" type="checkbox" sid="1" checked>1</input><br/>
+					 <input class="cb" type="checkbox" sid="2" checked>2</input><br/>
+					 <input class="cb" type="checkbox" sid="3">3</input><br/>
+					 <input class="cb" type="checkbox" sid="4">4</input><br/>
+					 <input class="cb" type="checkbox" sid="5">5</input><br/>
+					 <input class="cb" type="checkbox" sid="6">6</input><br/>
+					 <input class="cb" type="checkbox" sid="8">7</input><br/>
+					 <input class="cb" type="checkbox" sid="8">8</input><br/>
+					 <input class="cb" type="checkbox" sid="9">9</input><br/>
+					 <input class="cb" type="checkbox" sid="10">10</input><br/>
+					 <input class="cb" type="checkbox" sid="11">11</input><br/>
+					 <input class="cb" type="checkbox" sid="12">12</input><br/>
+					 <input class="cb" type="checkbox" sid="13">13</input><br/>
+					 <input class="cb" type="checkbox" sid="14">14</input><br/>
+					 <input class="cb" type="checkbox" sid="15">15</input><br/>
+					 <input class="cb" type="checkbox" sid="16">16</input><br/>
+				</div>
+	  		</div>
+	  		<div class="col-sm-9 col-md-9 my_right_side" align="center">
+	  			<div id="dis_1_right_side"></div>	  			
+	  		</div>
+	  	</div>
+	  </div>
+</body>
+
+<script type="text/javascript">
+	var color = d3.scale.category20c()
+
+	var margin = {top: 20, right: 20, bottom: 50, left: 80},
+    width = 700 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom
+
+    var canvas = d3.select("#dis_1_right_side").append("svg")
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom)
+					.append("g")
+					.attr("transform", "translate("+margin.left+", "+margin.top+")")
+
+	d3.csv("./final_data/[2]GoT Raw Data(age and death).csv", function(error, data) {
+		var width_scale = d3.scale.linear()
+						.domain([0, 100])
+						.range([0, width])
+		var height_scale = d3.scale.linear()
+						.domain([0, 1])
+						.range([height, 0])
+
+		var x_axis = d3.svg.axis()
+					.scale(width_scale)
+					.orient("bottom")
+
+		var y_axis = d3.svg.axis()
+					.scale(height_scale)
+					.orient("left")
+
+		canvas.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0, " + height+")")
+			.call(x_axis)
+
+
+
+		canvas.append("g")
+			.attr("class", "y axis")
+			.call(y_axis)
+			.append("text")
+	    		.attr("transform", "translate(0, "+ (height/2 -60)+") rotate(-90)")
+	      		.attr("y", -85)
+		      	.style("text-anchor", "end")
+		      	.text("US Viewers");
+
+		data = data_process(data)
+		var points = new Array()
+		var lines = new Array()
+		for (var i=0; i<17; i++) {
+			points[i] = canvas.selectAll(".points"+i)
+							.data(data[i])
+							.enter().append("circle")
+							  .attr("class", "points" + i)
+							  .attr("cx", function(d,i) {return width_scale(d.idx)})
+							  .attr("cy", function(d,i) {return height_scale(d.rate)})
+							  .attr("r", function(d,i) {
+							  		if (d.Affiliation<3) return 2
+							  		return 0
+							  })
+							  .style("fill", function(d) {return color(d.Affiliation)})
+		}
+
+		for (var i=0; i<17; i++) {
+			lines[i] = canvas.selectAll(".lines"+i)
+							.data(data[i]).enter()
+							.append("line")
+							   .attr('class', "lines"+i)
+							   .attr("x1", function(d,j) {
+							   		if (j == 0) j=1
+							   		return width_scale(data[i][j-1].idx)})
+							   .attr("y1", function(d,j) {
+							   		if (j == 0) j=1
+							   		return height_scale(data[i][j-1].rate) })
+							   .attr("x2", function(d,j) {return width_scale(data[i][j].idx) })
+							   .attr("y2", function(d,j) {return height_scale(data[i][j].rate) })
+							   .attr("stroke", function(d,j) {
+							   		if (j == 0) j=1
+							   		return color(data[i][j-1].Affiliation)})
+				    		   .attr("stroke-width", function(d,j) {
+				    		   		console.log(data[i][j].Affiliation)
+							  		if (data[i][j].Affiliation<3) return 2
+							  		return 0
+							  	})
+		}
+	})
+
+	d3.selectAll(".cb").on("click", function change() {
+		var str = d3.select(this).attr("sid")
+		var my_lines = d3.selectAll(".lines" + str)
+						 .attr("stroke-width", function(d,j) {
+						 	if (j == 0) j = 1
+						 	var wd = d3.select(this).attr("stroke-width")
+						 	if (wd==2) return 0
+						 	return 2
+						 })
+
+		var my_points = d3.selectAll(".points" + str)
+						 .attr("r", function(d,j) {
+						 	if (j == 0) j = 1
+						 	var wd = d3.select(this).attr("r")
+						 	if (wd==2) return 0
+						 	return 2
+						 })
+	})
+
+
+function data_process(data) {
+	var total = new Array()
+	var dead = new Array()
+	var rate = new Array()
+	for (var i=0; i<17; i++) {
+		total[i] = 0
+		dead[i] = 0
+		rate[i] = new Array()
+	}
+	
+	for (var i=0; i<data.length; i++) {
+		total[data[i].Affiliation] = total[data[i].Affiliation] + 1
+	}
+
+	for (var i=0; i<100; i++) {
+		for (var j=0; j<data.length; j++) {
+			if ( data[j].Age == i) {
+				dead[data[j].Affiliation] = dead[data[j].Affiliation] + 1
+			}
+		}
+
+		for (var j=0; j<17; j++) {
+			if (total[j] != 0) {
+				rate[j][i] = {"idx": i, "rate": (total[j]-dead[j])/total[j], "Affiliation":  j}
+			} else {
+				rate[j][i] = {"idx": i, "rate": 0, "Affiliation":  j}
+			}
+		}
+	}
+	return rate
+}
+   
+
+</script>
+</html>

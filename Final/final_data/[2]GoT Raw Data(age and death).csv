@@ -1,0 +1,370 @@
+Character,Age,Dead_1dead,Gender_1male,Affiliation,House_name
+Zalla,3,1,0,0,abc
+Goatherd's Son,7,0,1,0,abc
+Stableboy,11,1,1,0,abc
+King's Landing Urchin,11,0,1,0,abc
+Innkeeper's Daughter,18,0,0,0,abc
+Marillion,21,0,1,0,abc
+Oznak zo Pahl,27,1,1,0,abc
+Goatherd,30,0,1,0,abc
+Quaithe,31,0,0,0,abc
+Red-headed Whore,32,1,0,0,abc
+Xaro Xhoan Daxos,33,1,1,0,abc
+Goatherd 2,33,0,1,0,abc
+Musician 1,37,0,1,0,abc
+Musician,38,0,1,0,abc
+Musician 2,38,0,1,0,abc
+Mirri Maz Duur,40,1,0,0,abc
+Innkeeper,40,0,1,0,abc
+Prendahl na Ghezn,46,1,1,0,abc
+Wineseller,47,1,1,0,abc
+Masha Heddle,50,1,0,0,abc
+Lordsport dockhand,55,0,1,0,abc
+Sorcerer in the Box,60,1,1,0,abc
+Rickon Stark,9,0,1,1,asdsadg
+Billy,10,1,1,1,asdsadg
+Jeyne Pool,12,1,0,1,asdsadg
+Mycah,13,1,1,1,asdsadg
+Torrhen Karstark,13,1,1,1,asdsadg
+Bran Stark,13,0,1,1,asdsadg
+Jojen Reed,14,1,1,1,asdsadg
+Arya Stark,14,0,0,1,asdsadg
+Hot Pie,15,0,1,1,asdsadg
+Sansa Stark,15,0,0,1,asdsadg
+Lyanna Stark,16,1,0,1,asdsadg
+Robb Stark,16,1,1,1,asdsadg
+Harrion Karstark,17,1,1,1,asdsadg
+Talisa Stark,17,1,0,1,asdsadg
+Meera Reed,17,0,0,1,asdsadg
+Palla,18,0,0,1,asdsadg
+Olyvar Frey,19,0,1,1,asdsadg
+Brandon Stark,21,1,1,1,asdsadg
+Hodor,25,0,1,1,asdsadg
+Quent,28,0,1,1,asdsadg
+Anguy,31,0,1,1,asdsadg
+Jacks,35,0,1,1,asdsadg
+Catelyn Stark,35,1,0,1,asdsadg
+Wylla,36,1,0,1,asdsadg
+Eddard Stark,37,1,1,1,asdsadg
+Jory Cassel,37,1,1,1,asdsadg
+Howland Reed,37,0,1,1,asdsadg
+Dontos Hollard,38,1,1,1,asdsadg
+Varly,38,1,1,1,asdsadg
+Jaqen H'ghar,38,0,1,1,asdsadg
+Hallis Mollen,40,0,1,1,asdsadg
+Syrio Forel,41,1,1,1,asdsadg
+Wendel Manderly,41,1,1,1,asdsadg
+Barbrey Dustin,45,0,0,1,asdsadg
+Tomard,47,1,1,1,asdsadg
+Galbart Glover,50,0,1,1,asdsadg
+Rickard Stark,55,1,1,1,asdsadg
+Maege Marmont,55,0,0,1,asdsadg
+Mikken,55,1,1,1,asdsadg
+Rodrik Cassel,57,1,1,1,asdsadg
+Jon Umber,57,0,1,1,asdsadg
+Rickard Karstark,60,1,1,1,asdsadg
+Tobho Mott,60,0,1,1,asdsadg
+Mordane,64,1,0,1,asdsadg
+Vayon Poole,65,1,1,1,asdsadg
+Brynden Rivers,78,1,1,1,asdsadg
+Old Nan,85,1,0,1,asdsadg
+Edric Baratheon,0,1,1,2,qewrt
+Petyr Baratheon,0,1,1,2,qewrt
+Tommard Baratheon,0,1,1,2,qewrt
+Barra,1,1,0,2,qewrt
+Shireen Baratheon,6,0,0,2,qewrt
+Myrcella Baratheon,11,0,0,2,qewrt
+Tommen Baratheon,12,0,1,2,qewrt
+Joffrey Baratheon,14,1,1,2,qewrt
+Gendry,16,0,1,2,qewrt
+Cassana Baratheon,19,1,0,2,qewrt
+Brienne of Tarth,20,0,0,2,qewrt
+Mhaegen,21,1,0,2,qewrt
+Renly Baratheon,22,1,1,2,qewrt
+Robar Royce,22,1,1,2,qewrt
+Mathos Seaworth,24,1,1,2,qewrt
+Colen,25,0,1,2,qewrt
+Roland Crakehall,28,0,1,2,qewrt
+Ramsay Bolton,29,0,1,2,qewrt
+Imry Florent,35,1,1,2,qewrt
+Robert Baratheon,35,1,1,2,qewrt
+Falyse Stokeworth,35,0,1,2,qewrt
+Lollys Stokeworth,35,0,0,2,qewrt
+Stannis Baratheon,36,0,1,2,qewrt
+Catspaw Assassin,37,1,1,2,qewrt
+Melisandre,37,0,0,2,qewrt
+Salladhor Saan,38,0,1,2,qewrt
+Steffon Baratheon,40,1,1,2,qewrt
+Davos Seaworth,40,0,1,2,qewrt
+Janos Slynt,40,0,1,2,qewrt
+Meryn Trant,40,0,1,2,qewrt
+Goldcloak on Kingsroad,41,0,1,2,qewrt
+Roose Bolton,45,0,1,2,qewrt
+Selyse Baratheon,47,0,0,2,qewrt
+Tycho Nestoris,48,0,1,2,qewrt
+Bron,51,0,1,2,qewrt
+Selwyn Tarth,54,0,1,2,qewrt
+Argalia Baratheon,56,1,0,2,qewrt
+Orys Baratheon,58,1,1,2,qewrt
+Lord Stokeworth,60,0,1,2,qewrt
+Gerald,63,0,1,2,qewrt
+Illyn Payne,67,0,1,2,qewrt
+Cressen,79,1,1,2,qewrt
+Rhaego,0,1,1,3,kojsad
+Rhaenys Targaryen,4,1,0,3,kojsad
+Calla,7,0,0,3,kojsad
+Missandei,12,0,0,3,kojsad
+Aegon Blackfyre,13,1,1,3,kojsad
+Aemon Blackfyre,13,1,1,3,kojsad
+Irri,14,1,0,3,kojsad
+Jhogo,16,0,1,3,kojsad
+Jhiqui,17,0,0,3,kojsad
+Daenerys Targaryen,17,0,0,3,kojsad
+Daeron I Targaryen,18,1,1,3,kojsad
+Aegon Targaryen,19,0,1,3,kojsad
+Aggo,19,0,1,3,kojsad
+Daemon II Blackfyre,23,1,1,3,kojsad
+Viserys Targaryen,23,1,1,3,kojsad
+Joss Stilwood,23,0,1,3,kojsad
+Aegon II Targaryen,24,1,1,3,kojsad
+Doreah,24,1,0,3,kojsad
+Rhaegar Targaryen,24,1,1,3,kojsad
+Grey Worm,24,0,1,3,kojsad
+Hizdahr zo Loraq,25,0,1,3,kojsad
+Jon Connington,26,1,1,3,kojsad
+Daemon Blackfyre,27,1,1,3,kojsad
+Serena Blackfyre,27,1,0,3,kojsad
+Baelor Targaryen,28,1,1,3,kojsad
+Kovarro,30,0,1,3,kojsad
+Rhaenys Targaryen,31,1,0,3,kojsad
+Aegor Rivers,33,1,1,3,kojsad
+Rhaenyra Targaryen,33,1,0,3,kojsad
+Daario Naharis,33,0,1,3,kojsad
+Aemon Targaryen,36,1,1,3,kojsad
+Aenys Targaryen,36,1,1,3,kojsad
+Maegor Targaryen,36,1,1,3,kojsad
+Aegon III Targaryen,37,1,1,3,kojsad
+Daena Targaryen,39,1,0,3,kojsad
+Aerion Targaryen,40,1,1,3,kojsad
+Aerys II Targaryen,41,1,1,3,kojsad
+Duncan Targaryen,42,1,1,3,kojsad
+Naerys Targaryen,44,1,0,3,kojsad
+Rhaegel Targaryen,44,1,1,3,kojsad
+Rhaella Targaryen,44,1,0,3,kojsad
+Aegon IV Targaryen,46,1,1,3,kojsad
+Jorah Mormont,46,0,1,3,kojsad
+Aerys I Targaryen,48,1,1,3,kojsad
+Viserys II Targaryen,50,1,1,3,kojsad
+Viserys I Targaryen,52,1,1,3,kojsad
+Rhaena Targaryen,54,1,0,3,kojsad
+Daeron II Targaryen,57,1,1,3,kojsad
+Aegon V Targaryen,60,1,1,3,kojsad
+Maekar I Targaryen,60,1,1,3,kojsad
+Illyrio Mopatis,61,0,1,3,kojsad
+Barristan Selmy,63,0,1,3,kojsad
+Aegon I Targaryen,64,1,1,3,kojsad
+Visenya Targaryen,66,1,0,3,kojsad
+Duncan the Tall,67,1,1,3,kojsad
+Willem Darry,67,1,1,3,kojsad
+Jaehaerys I Targaryen,70,1,1,3,kojsad
+Elaena Targaryen,75,1,0,3,kojsad
+Kaeth,82,1,1,3,kojsad
+Martyn Lannister,13,1,1,4,sss
+Willem Lannister,13,1,1,4,sss
+Podrick Payne,15,0,1,4,sss
+Lancel Lannister,18,0,1,4,sss
+Shae,19,1,0,4,sss
+Marei,20,0,0,4,sss
+Timett,20,0,1,4,sss
+Lannister Guardsmen,24,1,1,4,sss
+Lannister messenger,24,0,1,4,sss
+Chella,25,0,0,4,sss
+Sandor Clegan,29,1,1,4,sss
+Tysha,29,0,0,4,sss
+Joanna Lannister,29,1,0,4,sss
+Polliner,30,1,1,4,sss
+Damon Lannister,31,1,1,4,sss
+Lannister Guardsmen,32,0,1,4,sss
+Cleos Frey,33,1,1,4,sss
+Biter,33,1,1,4,sss
+Cersei Lannister,34,0,0,4,sss
+Gregor Clegane,34,0,1,4,sss
+Jaime Lannister,34,0,1,4,sss
+Addam Marband,35,0,1,4,sss
+Tyrion Lannister,36,0,1,4,sss
+Weese,37,0,1,4,sss
+Tytos Lannister,38,1,1,4,sss
+Lannister captain,38,0,1,4,sss
+Lannister soldier,41,0,1,4,sss
+Dorna Lannister,45,0,0,4,sss
+Shagga,50,0,1,4,sss
+Amory Lorch,52,1,1,4,sss
+Stafford Lannister,59,1,1,4,sss
+Leo Lefford,64,1,1,4,sss
+Harys Swyft,65,0,1,4,sss
+Kevan Lannister,66,0,1,4,sss
+Tywin Lannister,67,1,1,4,sss
+Pycelle,84,1,1,4,sss
+Qyburn,85,0,1,4,sss
+Hallyne,91,0,1,4,sss
+Loreza Sand,7,0,0,5,qret
+Dorea Sand,8,0,0,5,qret
+Obella Sand,12,0,0,5,qret
+Trystane Martell,13,0,1,5,qret
+Elia Sand,14,0,0,5,qret
+Serra Frey,14,0,1,5,qret
+Sarella Sand,19,0,0,5,qret
+Daemon Sand,22,0,1,5,qret
+Tyene Sand,23,0,0,5,qret
+Nymeria Sand,26,0,0,5,qret
+Elia Martell,27,1,0,5,qret
+Obara Sand,28,0,0,5,qret
+Ellaria Sand,35,0,0,5,qret
+Larra Blackmont,37,0,0,5,qret
+Oberyn Martell,42,1,1,5,qret
+Areo Hotah,44,0,1,5,qret
+Doran Martell,52,0,1,5,qret
+Myriah Martell,54,1,0,5,qret
+Robin Arryn,8,0,1,6,qrterhg
+Willem Frey,10,0,1,6,qrterhg
+Waldron Frey,10,0,1,6,qrterhg
+Merry Frey,12,0,0,6,qrterhg
+Sarra Frey,14,0,0,6,qrterhg
+Shirei Frey,14,0,0,6,qrterhg
+Joyeuse Erenford,16,1,0,6,qrterhg
+Fat Walda Bolton,16,0,0,6,qrterhg
+Marianne Vance,18,0,0,6,qrterhg
+Roslin Frey,19,0,0,6,qrterhg
+Kurleket,25,1,1,6,qrterhg
+Minisa Tully,31,1,0,6,qrterhg
+Lysa Arryn,33,1,0,6,qrterhg
+Bethany Redwyne,33,0,0,6,qrterhg
+Walder Rivers,34,0,1,6,qrterhg
+Lothar Frey,36,0,1,6,qrterhg
+Edmure Tully,40,0,1,6,qrterhg
+Joss,40,0,1,6,qrterhg
+Jason Mallister,45,0,1,6,qrterhg
+Jonos Bracken,46,0,1,6,qrterhg
+Ryger Rivers,47,0,1,6,qrterhg
+Brynden Tully,55,0,1,6,qrterhg
+Hoster Tully,60,1,1,6,qrterhg
+Stevron Frey,66,1,1,6,qrterhg
+Walder Frey,92,0,1,6,qrterhg
+Axell Florent,59,1,1,8,iyue
+Domeric Bolton,17,1,1,9,56yrfg
+Tansy/Kyra,19,1,0,9,57yrfg
+Vargo Hoat,44,1,1,9,58yrfg
+Toad,15,0,1,10,243tojmnqf
+Halder,16,0,1,10,244tojmnqf
+Mink,16,0,1,10,245tojmnqf
+Jack Bulwer,17,1,1,10,246tojmnqf
+Pypar,17,1,1,10,247tojmnqf
+Rast,18,1,1,10,248tojmnqf
+Matthar,18,0,1,10,249tojmnqf
+Grenn,19,1,1,10,250tojmnqf
+Waymar Royce,19,1,1,10,251tojmnqf
+Jon Snow,20,0,1,10,252tojmnqf
+Samwell Tarly,21,0,1,10,253tojmnqf
+Bannen,23,1,1,10,254tojmnqf
+Donnel Hill,26,1,1,10,255tojmnqf
+Will,27,1,1,10,256tojmnqf
+Jafer Flowers,28,1,1,10,257tojmnqf
+Eddison Tollett,30,0,1,10,258tojmnqf
+Othor,31,1,1,10,259tojmnqf
+Benjen Stark,35,1,1,10,260tojmnqf
+Stiv,36,1,1,10,261tojmnqf
+Clubfoot Karl,37,1,1,10,262tojmnqf
+Kegs,40,1,1,10,263tojmnqf
+Yoren,43,1,1,10,264tojmnqf
+Denys Mallister,44,0,1,10,265tojmnqf
+Night's Watch Man,44,0,1,10,266tojmnqf
+Ebben,45,1,1,10,267tojmnqf
+Stonesnake,48,1,1,10,268tojmnqf
+Mully,50,1,1,10,269tojmnqf
+Alliser Thorne,53,0,1,10,270tojmnqf
+Gared,59,1,1,10,271tojmnqf
+Qhorin,60,1,1,10,272tojmnqf
+Othell Yarwyck,60,0,1,10,273tojmnqf
+Jeor Mormont,69,1,1,10,274tojmnqf
+Aemon,102,1,1,10,275tojmnqf
+Mago,23,1,1,11,kj23kj0
+Drogo,32,1,1,11,kj23kj1
+Qotho,32,1,1,11,kj23kj2
+Haggo,35,1,1,11,kj23kj3
+Cohollo,36,1,1,11,kj23kj4
+Bharbo,62,1,1,11,kj23kj5
+Crastor's Last Son,1,1,1,12,oopj2noj1
+Gilly's Baby,1,0,1,12,oopj2noj2
+Gilly,15,0,0,12,oopj2noj3
+Ygritte,19,1,0,12,oopj2noj4
+Craster's Younger Wife,23,0,0,12,oopj2noj5
+Osha,28,0,0,12,oopj2noj6
+Styr,34,1,1,12,oopj2noj7
+Tormund,36,0,1,12,oopj2noj8
+Skinchanger,40,1,1,12,oopj2noj9
+Orell,41,1,1,12,oopj2noj10
+Craster's Medium Wife,45,1,0,12,oopj2noj11
+Lord of Bones,47,1,1,12,oopj2noj12
+Morag,52,0,0,12,oopj2noj13
+Mance Rayder,61,0,1,12,oopj2noj14
+Craster,65,1,1,12,oopj2noj15
+Lommy,8,1,1,13,i0314kn
+Little Bird,8,0,1,13,i0315kn
+Little Bird 2,9,0,1,13,i0316kn
+Yezzan zo Qaggaz,30,1,1,13,i0317kn
+Mero,36,1,1,13,i0318kn
+Gwayne Gaunt,39,1,1,13,i0319kn
+Gerold Hightower,48,1,1,13,i0320kn
+Kings Landing Rioter,48,1,1,13,i0321kn
+Thoros,49,0,1,13,i0322kn
+Varys,50,0,1,13,i0323kn
+Grazdan mo Ullhor,51,1,1,13,i0324kn
+Kraznys mo Nakloz,54,1,1,13,i0325kn
+Unnamed Member of Thirteen,54,1,1,13,i0326kn
+High Septon,55,1,1,13,i0327kn
+Pyat Pree,55,1,1,13,i0328kn
+Harren Hoare,60,1,1,13,i0329kn
+High Septon,65,1,1,13,i0330kn
+Luwin,67,1,1,13,i0331kn
+High Sparrow,67,0,1,13,i0332kn
+Shella Whent,75,1,0,13,i0333kn
+Wex Pyke,12,1,1,14,mk34ih91n
+Maron Greyjoy,14,1,1,14,mk34ih92n
+Rodrik Greyjoy,15,1,1,14,mk34ih93n
+Captain's Daughter,20,0,0,14,mk34ih94n
+Gelmarr,21,1,1,14,mk34ih95n
+Theon Greyjoy,22,0,1,14,mk34ih96n
+Drennan,25,1,1,14,mk34ih97n
+Asha Greyjoy,25,0,0,14,mk34ih98n
+Aeron Greyjoy,28,0,1,14,mk34ih99n
+First Mate,38,0,1,14,mk34ih100n
+Adrack Humble,39,1,1,14,mk34ih101n
+Dagmer,43,1,1,14,mk34ih102n
+Victarion Greyjoy,45,0,1,14,mk34ih103n
+Lorren,47,1,1,14,mk34ih104n
+Alannys Greyjoy,47,0,0,14,mk34ih105n
+Ralf Kenning,48,1,1,14,mk34ih106n
+Balon Greyjoy,67,1,1,14,mk34ih107n
+Hugh,16,1,1,15,0kijq1noif13
+Donnel Waynwood,23,0,1,15,0kijq1noif14
+Petyr Baelish,32,0,1,15,0kijq1noif15
+Vardis Egen,34,1,1,15,0kijq1noif16
+Mord,40,0,1,15,0kijq1noif17
+Mandron Moore,43,1,1,15,0kijq1noif18
+Yohn Royce,56,0,1,15,0kijq1noif19
+Anya Waynwood,68,0,0,15,0kijq1noif20
+John Arryn,79,1,1,15,0kijq1noif21
+Eon Hunter,80,0,1,15,0kijq1noif22
+Margaery's handmaiden,17,0,0,16,sad354
+Margaery Tyrell,17,0,0,16,sad355
+Loras Tyrell,18,0,1,16,sad356
+Garlan Tyrell,23,0,1,16,sad357
+Lynesse Hightower,30,0,0,16,sad358
+Willas Tyrell,30,0,1,16,sad359
+Luther Tyrell,35,1,1,16,sad360
+Alerie Tyrell,40,0,0,16,sad361
+Randyll Tarly,42,0,1,16,sad362
+Mace Tyrell,44,0,1,16,sad363
+Melessa Tarly,45,0,0,16,sad364
+Paxter Redwyne,45,0,1,16,sad365
+Olenna Tyrell,65,0,0,16,sad366
