@@ -16,7 +16,7 @@
 }
 #container {
   margin:10px 10%;
-  border:2px solid #000;
+  border:0px solid #000;
   border-radius: 5px;
   height:100%;
   overflow:hidden;
@@ -76,8 +76,12 @@ div.tooltip {
       </div>
   </div>
 
-  <div id="container" class="col-sm-9 col-md-9 my_container"></div>
-  <div id="legend" class="col-sm-9 col-md-9 my_container" align="center"></div>
+  <div id="container" class="col-sm-9 col-md-9 my_container"><div class="statement">
+					<h1>HOW POPULAR?</h1>
+						<h2>See Web Search interest by country:Scale 1-100</h2>
+						<br/>
+						</div> </div>
+ <div id="legend" class="col-sm-9 col-md-9 my_container" align="center"></div>
 
 
 <script>
@@ -89,13 +93,14 @@ var color = d3.scale.linear()
 var my_legend = d3.select("#legend").append("svg")
           .attr("width", 800)
           .attr("height", 40)
-    var bias = 420
+		  
+    var bias = 400
     for (var i=0; i<200; i++) {
       my_legend.append("line")
              .attr("x1", i+10 + bias)
              .attr("y1", 0)
              .attr("x2", i+10 + bias)
-             .attr("y2", 15)
+             .attr("y2", 8)
              .attr("stroke", color(i/2))
              .attr("stroke-width",1); 
     }
@@ -119,7 +124,7 @@ var zoom = d3.behavior.zoom()
 
 
 var width = document.getElementById('container').offsetWidth;
-var height = width / 2;
+var height = width / 2-60;
 
 var topo,projection,path,svg,g;
 
