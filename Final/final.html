@@ -46,7 +46,7 @@
 	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 	          	<span class="sr-only">Toggle navigation</span>
 	          </button>
-	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">Alone All Life - IE590 - Project On Game of Thrones</a>
+	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">Alone All Life - Project On Game Of Thrones</a>
 	        </div>
     	</div>
 	</div>
@@ -91,7 +91,7 @@
               </div><!-- /.modal-content -->
         </div><!-- /.modal -->
       </div>
-      <input type="text" id="house"></input>
+      <input type="hidden" id="house"></input>
 </body>
 
 
@@ -109,7 +109,7 @@
 		.style('background', "yellow")
 		.offset([-10, 0])
 		.html(function(d) {
-	    	return "<strong>"+d.Name+"</strong><br/><strong>click to see detail</strong>"
+	    	return "<strong>"+d.House_Name+"</strong><br/><strong>click to see detail</strong>"
 	  	})
     
     // pic scale
@@ -127,12 +127,12 @@
 	var right_side = d3.select("#dis_1_right_side").append("div")
 					   .attr("id", "display_part")
 
-	var House_list = ["Baratheon", "Greyjoy", "Lannister", "Stark", "Targaryen", "Tyrell"]
+	var House_list = ["Baratheon", "Greyjoy", "Lannister", "Stark", "Targaryen", "Tyrell","Ayrrn","Martell","Tully"]
 	canvas.append("rect")
 		.attr("x", 380)
 	    .attr("y", 10)
 	    .attr("width", 150)
-	    .attr("height", 130)
+	    .attr("height", 190)
 	    .style("fill", "#aaaaaa");
 
 	for (var i=0; i<House_list.length; i++) {
@@ -140,7 +140,7 @@
 			.style("fill", color(House_list[i]))
 			.attr("cx", 392)
 			.attr("cy", 25 + 20*i)
-			.attr("r", 5)
+			.attr("r", 8)
 		canvas.append("text")
 			.attr("x", 412)
 		    .attr("y", 25 + 20*i+5)
@@ -160,7 +160,7 @@
 					    .attr('height', pic_height)
 					    .append("image")
 					    .attr("xlink:href", "../img/map[1].jpg")
-					    .style("opacity", "0.2")
+					    .style("opacity", "0.4")
 					    .attr('width', pic_width)
 					    .attr('height', pic_height);
 
@@ -174,40 +174,59 @@
 	    .attr("height", pic_width)
 	    .style("fill", "url(#bg)")
 
-	d3.csv("final_data/[1]main_characters.csv", function(error, data) {
-		var data_point = canvas.selectAll(".character_data_point")
+	d3.csv("final_data/[1]house.csv", function(error, data) {
+		var data_point = canvas.selectAll(".house_data_point")
 							  .data(data)
 							  .enter().append("circle")
-							  	      .attr("cx", function(d) {return d.x})
-							  	      .attr("cy", function(d) {return d.y})
-							  	      .attr("class", "character_data_point")
-							  	      .attr("r", 5)
-							  	      .attr("fill", function(d) {return color(d.House)})
+							  	      .attr("cx", function(d) {
+									   if(d.House_Name=="Stark") return 230;
+									   if(d.House_Name=="Lannister") return 160 ;
+									   if(d.House_Name=="Baratheon") return 320;
+									   if(d.House_Name=="Ayrrn") return 310;
+									  if(d.House_Name=="Martell") return  230;
+									  if(d.House_Name=="Tully") return 225;
+									  if(d.House_Name=="Greyjoy") return 130;
+									  if(d.House_Name=="Tyrell") return 200;
+									  if(d.House_Name=="Targaryen") return 350;
+									  
+									})
+							  	      .attr("cy", function(d) {  
+									  if(d.House_Name=="Stark") return 100;
+									   if(d.House_Name=="Lannister") return 350;
+									   if(d.House_Name=="Baratheon") return 460;
+									   if(d.House_Name=="Ayrrn") return 240;
+									  if(d.House_Name=="Martell") return 550;
+									  if(d.House_Name=="Tully") return 300;
+									  if(d.House_Name=="Greyjoy") return 250;
+									  if(d.House_Name=="Tyrell") return 440;
+									  if(d.House_Name=="Targaryen") return 350;})
+							  	      .attr("class", "house_data_point")
+							  	      .attr("r", 25)
+							  	      .attr("fill", function(d) {return color(d.House_Name)})
 							  	      .on("mouseover", tip.show)
 							  	      .on("mouseout", tip.hide)
 							  	      .on("click", function(d) {
-							  	      		var circle = d3.selectAll(".character_data_point").attr("r", "5")
-							  	      		var cir = d3.select(this).attr("r", "10")
+							  	      		var circle = d3.selectAll(".house_data_point").attr("r", "15")
+							  	      		var cir = d3.select(this).attr("r", "30")
 							  	      		show_right_side(d)
 							  	      })
 
 
 	})
 
-	function show_right_side(person) {
-		document.getElementById("house").value= person.House
+	function show_right_side(data) {
+		document.getElementById("house").value= data.House_Name
 
 		var logo = document.getElementById("logo")
-		logo.innerHTML = "<a href='javascript:show_modal'><img src='../img/Badge/House "+person.House+".jpg'></img></span></a>"
+		logo.innerHTML = "<a href='javascript:show_modal'><img src='../img/Badge/House "+data.House_Name+".jpg'></img></span></a>"
 
 		var meta = document.getElementById("meta")
-		meta.innerHTML = "<strong>Name : </strong> " + person.Name
-						+"<br/><strong>Starring seasons : </strong>" + person.Starring
-						+"<br/><strong>Episode count : </strong>" + person.Episode
-						+"<br/><strong>House : </strong>" + person.House 
+		meta.innerHTML = "<strong>House Name : </strong> " + data.House_Name
+						+"<br/><strong>House Words : </strong>" + data.House_Words
+						+"<br/><strong>Castle : </strong>" + data.Castle
+						+"<br/><strong>Region : </strong>" + data.Region
 
-		var intro = document.getElementById("intro")
-		intro.innerHTML = "<p><strong>Introduction: </strong></p><p>"+person.Introduction+"</p>"
+
 	}
 	
 	function show_modal(person) {
