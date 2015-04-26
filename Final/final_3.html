@@ -38,8 +38,8 @@
 
 	</script>
 </head>
-
 <body>
+
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       	<div class="container-fluid">
 	        <div class="navbar-header">
@@ -50,9 +50,16 @@
 	        </div>
     	</div>
 	</div>
+	
 	<div class="container-fluid">
+	
 	  	<div class="row">
+		
 	  		<div class="col-sm-12 col-md-12 my_container">
+			<div class="statement">
+					<h1>HOW POPULAR?</h1>
+						<h2>See US viewers by episode of 4 seasons</h2>
+						</div>
 				<div id="display_1"></div>
 				<div id="display_2"></div>
 	  		</div>
@@ -68,7 +75,7 @@
 		.style('background', "#aaaaaa")
 		.offset([-10, 0])
 		.html(function(d) {
-	    	return d.US_Viewers
+	    	return d.Title+"<br>"+d.US_Viewers
 	  	})
 
 	var tip2 = d3.tip()
@@ -76,17 +83,17 @@
 		.style('background', "#aaaaaa")
 		.offset([-10, 0])
 		.html(function(d) {
-	    	return d.rate
+	    	return d.Title+"<br>"+d.rate
 	  	})
 
 
 	var color = d3.scale.category10()
 
-	var margin = {top: 25, right: 20, bottom: 50, left: 150},
+	var margin = {top: 80, right: 20, bottom: 50, left: 150},
     width = 1000 - margin.left - margin.right
     width2 = 1000 - margin.left - margin.right
     height = 450 - margin.top - margin.bottom
-    height2 = 250 - margin.top - margin.bottom
+    height2 = 250 - margin.top- margin.bottom
     
     // canvas, svg
 	var canvas = d3.select("#display_1").append("svg")
@@ -98,7 +105,7 @@
 
 	var canvas2 = d3.select("#display_2").append("svg")
 					.attr("width", width + margin.left + margin.right)
-					.attr("height", height + margin.top + margin.bottom)
+					.attr("height", height + 10 + margin.bottom)
 					.append("g")
 					.attr("transform", "translate("+margin.left+", "+margin.top+")")
 	canvas2.call(tip2)
