@@ -12,6 +12,7 @@
 	<script src="../js/d3.min.js"></script>
 	<script src="../js/d3.tip.v0.6.3.js"></script>
 	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script src="../js/bootstrap-modal.js"></script>
 	<link href="../css/my_css.css" rel="stylesheet">
 	<!-- <script src="./js/hw_2.js"></script> -->
 
@@ -56,13 +57,41 @@
 	  		</div>
 	  		<div class="col-sm-6 col-md-6 my_right_side">
 	  			<div id="dis_1_right_side">
-	  				<div id="logo" align="center"></div>
+	  				<div id="logo" align="center" onclick="show_modal()"></div>
 	  				<div id="meta"></div>
 	  				<div id="intro"></div>
 	  			</div>
 	  		</div>
 	  	</div>
 	  </div>
+
+
+
+	  <div class="container-fluid" id="reminder">
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+           aria-labelledby="myModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+              <div class="modal-content">
+                 <div class="modal-header">
+                    <button type="button" class="close" 
+                       data-dismiss="modal" aria-hidden="true">
+                          &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                    </h4>
+                 </div>
+                 <div class="modal-body" id="reminder_content">
+                 </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" 
+                       data-dismiss="modal">Close
+                    </button>
+                 </div>
+              </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+      </div>
+      <input type="text" id="house"></input>
 </body>
 
 
@@ -157,8 +186,8 @@
 							  	      .on("mouseover", tip.show)
 							  	      .on("mouseout", tip.hide)
 							  	      .on("click", function(d) {
-							  	      		var circle = d3.selectAll(".character_data_point").style("fill", function(d) {return color(d.House)})
-							  	      		var cir = d3.select(this).style("fill", "red")
+							  	      		var circle = d3.selectAll(".character_data_point").attr("r", "5")
+							  	      		var cir = d3.select(this).attr("r", "10")
 							  	      		show_right_side(d)
 							  	      })
 
@@ -166,8 +195,10 @@
 	})
 
 	function show_right_side(person) {
+		document.getElementById("house").value= person.House
+
 		var logo = document.getElementById("logo")
-		logo.innerHTML = "<img src='../img/Badge/House "+person.House+".jpg'></img></span>"
+		logo.innerHTML = "<a href='javascript:show_modal'><img src='../img/Badge/House "+person.House+".jpg'></img></span></a>"
 
 		var meta = document.getElementById("meta")
 		meta.innerHTML = "<strong>Name : </strong> " + person.Name
@@ -179,6 +210,21 @@
 		intro.innerHTML = "<p><strong>Introduction: </strong></p><p>"+person.Introduction+"</p>"
 	}
 	
+	function show_modal(person) {
+		var house = document.getElementById("house").value
+		d3.csv("./final_data/[1]house.csv", function(error, data) {
+			for (var i=0; i<data.length; i++) {
+				if (data[i].House_Name == house) {
+					document.getElementById("myModalLabel").innerHTML = house
+					document.getElementById("reminder_content").innerHTML = "<strong>House Words : </strong>" + data[i].House_Words + "<br/>"
+					   + "<strong>House Words : </strong>" + data[i].House_Words + "<br/>"
+					   + "<strong>Castle : </strong>" + data[i].Castle + "<br/>"
+					   + "<strong>Region : </strong>" + data[i].Region + "<br/>"
+				}
+			}
+		})
+		$('#myModal').modal('show');
+	}
 </script>	
 
 </html>
