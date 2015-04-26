@@ -38,7 +38,24 @@
 
 	</script>
 </head>
+<style>
+#logo{
+ height: 200px;
+ width: 300px;
+ position: absolute;
+ top: 0px;
+ left: 0px;
 
+}
+#meta{
+ height: 200px;
+ width: 300px;
+ position: absolute;
+ top: 0px;
+ left: 220px;
+ font-size:25px;
+}
+</style>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       	<div class="container-fluid">
@@ -57,8 +74,8 @@
 	  		</div>
 	  		<div class="col-sm-6 col-md-6 my_right_side">
 	  			<div id="dis_1_right_side">
-	  				<div id="logo" align="center" onclick="show_modal()"></div>
-	  				<div id="meta"></div>
+	  				<div id="logo" align="left" onclick="show_modal()"></div>
+	  				<div id="meta" align= "left"></div>
 	  				<div id="intro"></div>
 	  			</div>
 	  		</div>
@@ -201,13 +218,14 @@
 									  if(d.House_Name=="Tyrell") return 440;
 									  if(d.House_Name=="Targaryen") return 350;})
 							  	      .attr("class", "house_data_point")
-							  	      .attr("r", 25)
+							  	      .attr("r", 30)
 							  	      .attr("fill", function(d) {return color(d.House_Name)})
 							  	      .on("mouseover", tip.show)
 							  	      .on("mouseout", tip.hide)
-							  	      .on("click", function(d) {
-							  	      		var circle = d3.selectAll(".house_data_point").attr("r", "15")
-							  	      		var cir = d3.select(this).attr("r", "30")
+							  	      .on("mouseover", function(d) {
+									        tip.show;
+							  	      		var circle = d3.selectAll(".house_data_point").attr("r", "26")
+							  	      		var cir = d3.select(this).attr("r", "34")
 							  	      		show_right_side(d)
 							  	      })
 
@@ -219,12 +237,14 @@
 
 		var logo = document.getElementById("logo")
 		logo.innerHTML = "<a href='javascript:show_modal'><img src='../img/Badge/House "+data.House_Name+".jpg'></img></span></a>"
-
+            
+			
 		var meta = document.getElementById("meta")
 		meta.innerHTML = "<strong>House Name : </strong> " + data.House_Name
-						+"<br/><strong>House Words : </strong>" + data.House_Words
 						+"<br/><strong>Castle : </strong>" + data.Castle
 						+"<br/><strong>Region : </strong>" + data.Region
+		                +"<br/><strong>Words : </strong>" + data.House_Words
+			
 
 
 	}
@@ -236,7 +256,7 @@
 				if (data[i].House_Name == house) {
 					document.getElementById("myModalLabel").innerHTML = house
 					document.getElementById("reminder_content").innerHTML = "<strong>House Words : </strong>" + data[i].House_Words + "<br/>"
-					   + "<strong>House Words : </strong>" + data[i].House_Words + "<br/>"
+					   + "<strong>House Words :</strong>" + data[i].House_Words + "<br/>"
 					   + "<strong>Castle : </strong>" + data[i].Castle + "<br/>"
 					   + "<strong>Region : </strong>" + data[i].Region + "<br/>"
 				}
