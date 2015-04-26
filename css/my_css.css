@@ -90,3 +90,21 @@ body {
 #intro {
   top: 30px;
 }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.axis text {  
+    font-family: sans-serif;  
+    font-size: 11px;  
+}  
+
+.axis2 path,
+.axis2 line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}

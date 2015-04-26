@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/d3.min.js"></script>
+	<script src="../js/d3.tip.v0.6.3.js"></script>
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script src="../js/bootstrap-modal.js"></script>
+	<link href="../css/my_css.css" rel="stylesheet">
+	<!-- <script src="./js/hw_2.js"></script> -->
+
+
+	<!-- Just for debugging purposes. Don't actually copy this line! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- title -->
+	<title>Alone All Life</title>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-61822913-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      	<div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          	<span class="sr-only">Toggle navigation</span>
+	          </button>
+	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">Alone All Life - IE590 - Project Team</a>
+	        </div>
+    	</div>
+	</div>
+	<div class="container-fluid">
+	  	<div class="row">
+	  		<div class="col-sm-12 col-md-12 my_container">
+				<div id="display_1"></div>
+				<div id="display_2"></div>
+	  		</div>
+	  	</div>
+	  </div>
+
+</body>
+
+<script type="text/javascript" >
+
+	var tip = d3.tip()
+		.attr('class', 'd3-tip')
+		.style('background', "#aaaaaa")
+		.offset([-10, 0])
+		.html(function(d) {
+	    	return d.US_Viewers
+	  	})
+
+	var tip2 = d3.tip()
+		.attr('class', 'd3-tip')
+		.style('background', "#aaaaaa")
+		.offset([-10, 0])
+		.html(function(d) {
+	    	return d.rate
+	  	})
+
+
+	var color = d3.scale.category10()
+
+	var margin = {top: 25, right: 20, bottom: 50, left: 150},
+    width = 1000 - margin.left - margin.right
+    width2 = 1000 - margin.left - margin.right
+    height = 450 - margin.top - margin.bottom
+    height2 = 250 - margin.top - margin.bottom
+    
+    // canvas, svg
+	var canvas = d3.select("#display_1").append("svg")
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom)
+					.append("g")
+					.attr("transform", "translate("+margin.left+", "+margin.top+")")
+	canvas.call(tip)
+
+	var canvas2 = d3.select("#display_2").append("svg")
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom)
+					.append("g")
+					.attr("transform", "translate("+margin.left+", "+margin.top+")")
+	canvas2.call(tip2)
+
+	d3.csv('./final_data/[3]Episodes.csv', function (error, data) {
+		var total_No = 41
+		var US_Viewers = 7170000
+		var max_rate = 0.3
+		var width_scale = d3.scale.linear()
+						.domain([1, total_No])
+						.range([0, width])
+		var width_scale2 = d3.scale.linear()
+						.domain([1, total_No])
+						.range([0, width])
+
+		var height_scale = d3.scale.linear()
+						.domain([0, US_Viewers])
+						.range([height, 0])
+		var height_scale2 = d3.scale.linear()
+						.domain([-max_rate, max_rate])
+						.range([height2, 0])
+
+		var x_axis = d3.svg.axis()
+					.scale(width_scale)
+					.orient("bottom")
+
+		var y_axis = d3.svg.axis()
+					.scale(height_scale)
+					.orient("left")
+
+		var x_axis2 = d3.svg.axis()
+					.scale(width_scale2)
+					.tickValues([])
+					.orient("bottom")
+
+
+		var y_axis2 = d3.svg.axis()
+					.scale(height_scale2)
+					.orient("left")
+
+
+		canvas.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0, " + height+")")
+			.call(x_axis2)
+
+
+
+		canvas.append("g")
+			.attr("class", "y axis")
+			.call(y_axis)
+			.append("text")
+	    		.attr("transform", "translate(0, "+ (height/2 -60)+") rotate(-90)")
+	      		.attr("y", -85)
+		      	.style("text-anchor", "end")
+		      	.text("US Viewers");
+
+
+		canvas2.append("g")
+			.attr("class", "x axis")
+			.attr("transform", "translate(0, " + height2/2+")")
+			.call(x_axis2)
+
+		canvas2.append("g")
+			.attr("class", "y axis2")
+			.call(y_axis2)
+			.append("text")
+	    		.attr("transform", "translate(0, "+ (height2/2 -60)+") rotate(-90)")
+	      		.attr("y", -85)
+		      	.style("text-anchor", "end")
+		      	.text("Increasing rate");
+
+
+		canvas.selectAll(".data_point")
+			  .data(data)
+			  .enter().append("rect")
+			  		  .attr("x", function(d) {return width_scale(d.No)+5})
+			  		  .attr("y", function(d) {return height_scale(d.US_Viewers)})
+			  		  .attr("width", 15)
+			  		  .attr("height", function(d) {return height_scale(US_Viewers - d.US_Viewers)})
+			  		  .style("fill", function(d) {return color(d.Season)})
+			  		  .on("mouseover", tip.show)
+			  		  .on("mouseout", tip.hide)
+
+		canvas.selectAll(".data_season")
+			  .data(data)
+			  .enter().append("text")
+			  		  .attr("x", function(d) {return width_scale(d.No)+6})
+			  		  .attr("y", function(d) {return height_scale(0) +14})
+			  		  .text(function(d) {return d.No})
+
+		canvas2.selectAll(".data_rate")
+			  .data(data)
+			  .enter().append("circle")
+			  		  .attr("cx", function(d) {return width_scale(d.No)+6})
+			  		  .attr("cy", function(d) {return height_scale2(d.rate
+)})
+			  		  .attr("r", 4)
+			  		  .style("fill", function(d) {return color(d.Season) })
+			  		  .on("mouseover", tip2.show)
+			  		  .on("mouseout", tip2.hide)
+		
+			  
+		for (var i=1; i<data.length; i++) {
+			canvas2.append("line")
+				   .attr("x1", width_scale2(data[i-1].No) + 6)
+				   .attr("y1", height_scale2(data[i-1].rate))
+				   .attr("x2", width_scale2(data[i].No) + 6)
+				   .attr("y2", height_scale2(data[i].rate))
+				   .attr("stroke", color(data[i-1].Season))
+	    		   .attr("stroke-width",2);	
+		}
+	})
+	
+
+</script>	
+
+
+
+</html>
