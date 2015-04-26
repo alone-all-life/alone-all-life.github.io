@@ -15,6 +15,14 @@ body {
 /*
  * Sidebar
  */
+.my_container {
+  top: 51px;
+  text-align: center;
+}
+
+.my_right_side{
+  top: 69px;
+}
 
 /* Hide for mobile, show later */
 .sidebar {
@@ -67,4 +75,18 @@ body {
 }
 .main .page-header {
   margin-top: 0;
+}
+
+
+/*
+  vis_css
+*/
+
+#meta {
+  padding-top: 20px;
+  margin-left: 100px;
+}
+
+#intro {
+  top: 30px;
 }

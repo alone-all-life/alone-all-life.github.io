@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Bootstrap core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/d3.min.js"></script>
+	<script src="../js/d3.tip.v0.6.3.js"></script>
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<link href="../css/my_css.css" rel="stylesheet">
+	<!-- <script src="./js/hw_2.js"></script> -->
+
+
+	<!-- Just for debugging purposes. Don't actually copy this line! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- title -->
+	<title>Alone All Life</title>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-61822913-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      	<div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          	<span class="sr-only">Toggle navigation</span>
+	          </button>
+	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">Alone All Life - IE590 - Project Team</a>
+	        </div>
+    	</div>
+	</div>
+	<div class="container-fluid">
+	  	<div class="row">
+	  		<div class="col-sm-6 col-md-6 my_container">
+				<div id="dispaly_1"></div>
+	  		</div>
+	  		<div class="col-sm-6 col-md-6 my_right_side">
+	  			<div id="dis_1_right_side">
+	  				<div id="logo" align="center"></div>
+	  				<div id="meta"></div>
+	  				<div id="intro"></div>
+	  			</div>
+	  		</div>
+	  	</div>
+	  </div>
+</body>
+
+
+<script type="text/javascript" >
+	var color = d3.scale.category10()
+
+
+
+	var margin = {top: 40, right: 20, bottom: 50, left: 60},
+    width = 500 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom
+
+    var tip = d3.tip()
+		.attr('class', 'd3-tip')
+		.style('background', "yellow")
+		.offset([-10, 0])
+		.html(function(d) {
+	    	return "<strong>"+d.Name+"</strong><br/><strong>click to see detail</strong>"
+	  	})
+    
+    // pic scale
+    	var pic_width = 600
+    	var pic_height = 620
+
+    // canvas, svg
+	var canvas = d3.select("#dispaly_1").append("svg")
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom)
+
+
+	canvas.call(tip);
+
+	var right_side = d3.select("#dis_1_right_side").append("div")
+					   .attr("id", "display_part")
+
+	var House_list = ["Baratheon", "Greyjoy", "Lannister", "Stark", "Targaryen", "Tyrell"]
+	canvas.append("rect")
+		.attr("x", 380)
+	    .attr("y", 10)
+	    .attr("width", 150)
+	    .attr("height", 130)
+	    .style("fill", "#aaaaaa");
+
+	for (var i=0; i<House_list.length; i++) {
+		canvas.append("circle")
+			.style("fill", color(House_list[i]))
+			.attr("cx", 392)
+			.attr("cy", 25 + 20*i)
+			.attr("r", 5)
+		canvas.append("text")
+			.attr("x", 412)
+		    .attr("y", 25 + 20*i+5)
+		    .text(House_list[i])
+		    .style("font-weight", "bold")
+	}
+
+
+
+
+
+	var pattern = canvas.append("defs")
+						.append("pattern")
+					    .attr("id", "bg")
+					    .attr("patternUnits", "userSpaceOnUse")
+					    .attr('width', pic_width)
+					    .attr('height', pic_height)
+					    .append("image")
+					    .attr("xlink:href", "../img/map[1].jpg")
+					    .style("opacity", "0.2")
+					    .attr('width', pic_width)
+					    .attr('height', pic_height);
+
+	var rectangle = canvas.selectAll("rectangle")
+	    .data([{}])
+	    .enter()
+	    .append('svg:rect')
+	    .attr("x", 10)
+	    .attr("y", 10)
+	    .attr("width", pic_width)
+	    .attr("height", pic_width)
+	    .style("fill", "url(#bg)")
+
+	d3.csv("final_data/[1]main_characters.csv", function(error, data) {
+		var data_point = canvas.selectAll(".character_data_point")
+							  .data(data)
+							  .enter().append("circle")
+							  	      .attr("cx", function(d) {return d.x})
+							  	      .attr("cy", function(d) {return d.y})
+							  	      .attr("class", "character_data_point")
+							  	      .attr("r", 5)
+							  	      .attr("fill", function(d) {return color(d.House)})
+							  	      .on("mouseover", tip.show)
+							  	      .on("mouseout", tip.hide)
+							  	      .on("click", function(d) {
+							  	      		var circle = d3.selectAll(".character_data_point").style("fill", function(d) {return color(d.House)})
+							  	      		var cir = d3.select(this).style("fill", "red")
+							  	      		show_right_side(d)
+							  	      })
+
+
+	})
+
+	function show_right_side(person) {
+		var logo = document.getElementById("logo")
+		logo.innerHTML = "<img src='../img/Badge/House "+person.House+".jpg'></img></span>"
+
+		var meta = document.getElementById("meta")
+		meta.innerHTML = "<strong>Name : </strong> " + person.Name
+						+"<br/><strong>Starring seasons : </strong>" + person.Starring
+						+"<br/><strong>Episode count : </strong>" + person.Episode
+						+"<br/><strong>House : </strong>" + person.House 
+
+		var intro = document.getElementById("intro")
+		intro.innerHTML = "<p><strong>Introduction: </strong></p><p>"+person.Introduction+"</p>"
+	}
+	
+</script>	
+
+</html>
