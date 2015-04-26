@@ -53,7 +53,16 @@ div.tooltip {
   <script src="../js/jquery-1.8.3.min.js"></script>
   <script src="../js/bootstrap-modal.js"></script>
   <link href="../css/my_css.css" rel="stylesheet">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+    ga('create', 'UA-61822913-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -73,8 +82,8 @@ div.tooltip {
 
 <script>
 var color = d3.scale.linear()
-              .domain([-100, 0, 100])
-              .range(["red", "white", "orange"])
+              .domain([-100, -5, 100])
+              .range(["red", "#ffffff", "red"])
 
 
 var my_legend = d3.select("#legend").append("svg")
@@ -150,7 +159,7 @@ d3.json("final_data/world-topo-min.json", function(error, world) {
 function draw(topo) {
 
   svg.append("path")
-     .datum(graticule)
+     // .datum(graticule)
      .attr("class", "graticule")
      .attr("d", path);
 
@@ -175,7 +184,7 @@ d3.csv("./final_data/[4]WebSearchinterestbycountryScale-1-100.csv", function(err
                 return color(data[j].web_search)
               }
             }
-            d.web_search = "No recorde"
+            d.web_search = "No record"
             return color(0)
             })
       
