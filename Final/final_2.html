@@ -56,7 +56,7 @@
 	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 	          	<span class="sr-only">Toggle navigation</span>
 	          </button>
-	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">Alone All Life - IE590 - Project Team</a>
+	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">All Life - IE590 - Project On Game of Thrones</a>
 	        </div>
 	        <div class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
@@ -76,6 +76,8 @@
 				<div id="left">
 					 <!-- <li class="cb" type="checkbox" sid="0" checked>0</li><br/> -->
 					<ul>
+						 <li class="cb" type="checkbox" id="s17">Afghanistan</li><br/>
+						 <li class="cb" type="checkbox" id="s18">Japan</li><br/>
 						 <li class="cb" type="checkbox" id="s1" checked>Stark</li><br/>
 						 <li class="cb" type="checkbox" id="s2" checked>Baratheon</li><br/>
 						 <li class="cb" type="checkbox" id="s3">Targaryen</li><br/>
@@ -129,6 +131,7 @@
 
 	canvas.call(tip)
 	d3.csv("./final_data/[2]GoT Raw Data(age and death).csv", function(error, data) {
+		d3.csv("./final_data/[2]Moderndaycomparison.csv", function(error, aj) {
 		var width_scale = d3.scale.linear()
 						.domain([0, 100])
 						.range([0, width])
@@ -161,10 +164,10 @@
 		      	.style("text-anchor", "end")
 		      	.text("US Viewers");
 
-		data = data_process(data)
+		data = data_process(data, aj)
 		var points = new Array()
 		var lines = new Array()
-		for (var i=1; i<17; i++) {
+		for (var i=1; i<19; i++) {
 			points[i] = canvas.selectAll(".pointss"+i)
 							.data(data[i])
 							.enter().append("circle")
@@ -172,7 +175,7 @@
 							  .attr("cx", function(d,i) {return width_scale(d.idx)})
 							  .attr("cy", function(d,i) {return height_scale(d.rate)})
 							  .attr("r", function(d,i) {
-							  		if (d.Affiliation<3) return 3
+							  		// if (d.Affiliation>16) return 3
 							  		return 0
 							  })
 							  .style("fill", function(d) {return color(d.Affiliation)})
@@ -181,7 +184,7 @@
 		}
 							  
 
-		for (var i=1; i<17; i++) {
+		for (var i=1; i<19; i++) {
 			lines[i] = canvas.selectAll(".liness"+i)
 							.data(data[i]).enter()
 							.append("line")
@@ -198,10 +201,12 @@
 							   		if (j == 0) j=1
 							   		return color(data[i][j-1].Affiliation)})
 				    		   .attr("stroke-width", function(d,j) {
-							  		if (data[i][j].Affiliation<3) return 2
+							  		if (data[i][j].Affiliation>16) return 2
+							  			
 							  		return 0
 							  	})
 		}
+	})
 	})
 
 	
@@ -216,21 +221,22 @@
 						 	return 2
 						 })
 
+
 		var my_points = d3.selectAll(".points" + str)
 						 .attr("r", function(d,j) {
 						 	if (j == 0) j = 1
 						 	var wd = d3.select(this).attr("r")
 						 	if (wd==3) return 0
-						 	return 3
+						 	return 0
 						 })
 	})
 
 
-function data_process(data) {
+function data_process(data, aj) {
 	var total = new Array()
 	var dead = new Array()
 	var rate = new Array()
-	for (var i=0; i<17; i++) {
+	for (var i=0; i<19; i++) {
 		total[i] = 0
 		dead[i] = 0
 		rate[i] = new Array()
@@ -240,18 +246,36 @@ function data_process(data) {
 		total[data[i].Affiliation] = total[data[i].Affiliation] + 1
 	}
 
-	var list = [1,2,3,4,5,6,10,11,12,13,14,15,16]
+	
+		rate[17][0] = {"idx": 0, "rate": 1, "Affiliation":  17}
+		rate[18][0] = {"idx": 0, "rate": 1, "Affiliation":  18}
+
+		for (var i=1; i<100; i++) {
+			var flag = 0
+			rate[17][i] = {"idx": i, "rate": 1, "Affiliation":  17}
+			rate[18][i] = {"idx": i, "rate": 1, "Affiliation":  18}
+			for (var j=0; j<aj.length; j++) {
+				if (i == aj[j].age) {
+					rate[17][i].rate = aj[j].Afghanistan2012*1/100
+					rate[18][i].rate = aj[j].Japan2012*1/100
+					flag = 1
+				}
+			}
+		 	if (flag == 0){
+				rate[17][i].rate = rate[17][i-1].rate
+				rate[18][i].rate = rate[18][i-1].rate
+			}
+		}
+
+	var list = [1,2,3,4,5,6,10,11,12,13,14,15,16,17,18]
 	for (var i=0; i<list.length; i++) {
 		var idx = list[i]
 		var id = d3.select("#s"+idx)
-					.style("font-size", total[idx]/2+"px")
-					// .style("background-color", "#cccccc")
+					.style("font-size", (total[idx]/2+10)+"px" )
 					.style("color", color(i))
 
 	}
-				// .call(function() {console.log(total[i])})
-
-	// console.log(cb)
+			
 
 	for (var i=0; i<100; i++) {
 		for (var j=0; j<data.length; j++) {
@@ -268,6 +292,7 @@ function data_process(data) {
 			}
 		}
 	}
+
 	return rate
 }
    
