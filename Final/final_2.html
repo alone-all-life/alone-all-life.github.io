@@ -66,23 +66,25 @@
 	  	<div class="row">
 	  		<div class="col-sm-3 col-md-3 my_right_side" align="center">
 				<div id="left">
-					 <!-- <input class="cb" type="checkbox" sid="0" checked>0</input><br/> -->
-					 <input class="cb" type="checkbox" sid="1" checked>Stark</input><br/>
-					 <input class="cb" type="checkbox" sid="2" checked>Baratheon</input><br/>
-					 <input class="cb" type="checkbox" sid="3">Targaryen</input><br/>
-					 <input class="cb" type="checkbox" sid="4">Lannister</input><br/>
-					 <input class="cb" type="checkbox" sid="5">Martell</input><br/>
-					 <input class="cb" type="checkbox" sid="6">Tully</input><br/>
-					 <!-- <input class="cb" type="checkbox" sid="8">7</input><br/> -->
-					 <!-- <input class="cb" type="checkbox" sid="8">8</input><br/> -->
-					 <!-- <input class="cb" type="checkbox" sid="9">9</input><br/> -->
-					 <input class="cb" type="checkbox" sid="10">Night's Watch</input><br/>
-					 <input class="cb" type="checkbox" sid="11">Dothraki</input><br/>
-					 <input class="cb" type="checkbox" sid="12">Beyond the wall</input><br/>
-					 <input class="cb" type="checkbox" sid="13">The Faith</input><br/>
-					 <input class="cb" type="checkbox" sid="14">Greyjoy</input><br/>
-					 <input class="cb" type="checkbox" sid="15">Arryn</input><br/>
-					 <input class="cb" type="checkbox" sid="16">Tyrell</input><br/>
+					 <!-- <li class="cb" type="checkbox" sid="0" checked>0</li><br/> -->
+					<ul>
+						 <li class="cb" type="checkbox" id="s1" checked>Stark</li><br/>
+						 <li class="cb" type="checkbox" id="s2" checked>Baratheon</li><br/>
+						 <li class="cb" type="checkbox" id="s3">Targaryen</li><br/>
+						 <li class="cb" type="checkbox" id="s4">Lannister</li><br/>
+						 <li class="cb" type="checkbox" id="s5">Martell</li><br/>
+						 <li class="cb" type="checkbox" id="s6">Tully</li><br/>
+						 <!-- <li class="cb" type="checkbox" sid="8">7</li><br/> -->
+						 <!-- <li class="cb" type="checkbox" sid="8">8</li><br/> -->
+						 <!-- <li class="cb" type="checkbox" sid="9">9</li><br/> -->
+						 <li class="cb" type="checkbox" id="s10">Night's Watch</li><br/>
+						 <li class="cb" type="checkbox" id="s11">Dothraki</li><br/>
+						 <li class="cb" type="checkbox" id="s12">Beyond the wall</li><br/>
+						 <li class="cb" type="checkbox" id="s13">The Faith</li><br/>
+						 <li class="cb" type="checkbox" id="s14">Greyjoy</li><br/>
+						 <li class="cb" type="checkbox" id="s15">Arryn</li><br/>
+						 <li class="cb" type="checkbox" id="s16">Tyrell</li><br/>
+					</ul>
 				</div>
 	  		</div>
 	  		<div class="col-sm-9 col-md-9 my_right_side" align="center">
@@ -105,8 +107,7 @@
 		.html(function(d, i) {
 	    	return "<strong>Age : </strong>" + i + "<br/>"
 	    		   +"<strong>Rate : </strong>" + Math.round(d.rate*100)/100
-
-	  	})
+	 	})
 
     var canvas = d3.select("#dis_1_right_side").append("svg")
 					.attr("width", width + margin.left + margin.right)
@@ -131,6 +132,7 @@
 					.scale(height_scale)
 					.orient("left")
 
+
 		canvas.append("g")
 			.attr("class", "x axis")
 			.attr("transform", "translate(0, " + height+")")
@@ -151,10 +153,10 @@
 		var points = new Array()
 		var lines = new Array()
 		for (var i=1; i<17; i++) {
-			points[i] = canvas.selectAll(".points"+i)
+			points[i] = canvas.selectAll(".pointss"+i)
 							.data(data[i])
 							.enter().append("circle")
-							  .attr("class", "points" + i)
+							  .attr("class", "pointss" + i)
 							  .attr("cx", function(d,i) {return width_scale(d.idx)})
 							  .attr("cy", function(d,i) {return height_scale(d.rate)})
 							  .attr("r", function(d,i) {
@@ -168,10 +170,10 @@
 							  
 
 		for (var i=1; i<17; i++) {
-			lines[i] = canvas.selectAll(".lines"+i)
+			lines[i] = canvas.selectAll(".liness"+i)
 							.data(data[i]).enter()
 							.append("line")
-							   .attr('class', "lines"+i)
+							   .attr('class', "liness"+i)
 							   .attr("x1", function(d,j) {
 							   		if (j == 0) j=1
 							   		return width_scale(data[i][j-1].idx)})
@@ -190,8 +192,10 @@
 		}
 	})
 
+	
+
 	d3.selectAll(".cb").on("click", function change() {
-		var str = d3.select(this).attr("sid")
+		var str = d3.select(this).attr("id")
 		var my_lines = d3.selectAll(".lines" + str)
 						 .attr("stroke-width", function(d,j) {
 						 	if (j == 0) j = 1
@@ -223,6 +227,19 @@ function data_process(data) {
 	for (var i=0; i<data.length; i++) {
 		total[data[i].Affiliation] = total[data[i].Affiliation] + 1
 	}
+
+	var list = [1,2,3,4,5,6,10,11,12,13,14,15,16]
+	for (var i=0; i<list.length; i++) {
+		var idx = list[i]
+		var id = d3.select("#s"+idx)
+					.style("font-size", total[idx]/2+"px")
+					// .style("background-color", "#cccccc")
+					.style("color", color(i))
+
+	}
+				// .call(function() {console.log(total[i])})
+
+	// console.log(cb)
 
 	for (var i=0; i<100; i++) {
 		for (var j=0; j<data.length; j++) {
