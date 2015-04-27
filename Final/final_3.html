@@ -91,13 +91,13 @@
 		.attr('class', 'd3-tip')
 		.offset([-10, 0])
 		.html(function(d) {
-	    	return d.Title+"<br>"+d.rate
+	    	return d.Title+"<br>"+ Math.round(d.rate*100)/100
 	  	})
 
 
 	var color = d3.scale.category10()
 
-	var margin = {top: 0, right: 20, bottom: 20, left: 150},
+	var margin = {top: 0, right: 20, bottom: 40, left: 150},
     width = 1000 - margin.left - margin.right
     width2 = 1000 - margin.left - margin.right
     height = 350 - margin.top - margin.bottom
@@ -192,18 +192,30 @@
 			  .enter().append("rect")
 			  		  .attr("x", function(d) {return width_scale(d.No)+5})
 			  		  .attr("y", function(d) {return height_scale(d.US_Viewers)})
+			  		  .attr("class", ".data_point")
 			  		  .attr("width", 15)
 			  		  .attr("height", function(d) {return height_scale(US_Viewers - d.US_Viewers)})
 			  		  .style("fill", function(d) {return color(d.Season)})
 			  		  .on("mouseover", tip.show)
-			  		  .on("mouseout", tip.hide)
+			  		  .on("mouseout", tip.hide)				
+
 
 		canvas.selectAll(".data_season")
 			  .data(data)
 			  .enter().append("text")
 			  		  .attr("x", function(d) {return width_scale(d.No)+6})
 			  		  .attr("y", function(d) {return height_scale(0) +14})
-			  		  .text(function(d) {return d.No})
+			  		  .text(function(d) {
+			  		  		var q = Math.round( (d.No*1+4)/10 )
+			  		 	  	// return "S" + q
+			  		 	  	return d.No*1- q*10 + 10
+			  		  })
+		for (var i=1; i<5; i++) {
+			canvas.append("text")
+						.attr("x", function(d) {return width_scale(-5.5 + i*10) + 6})
+						.attr("y", function(d) {return height_scale(0) + 28})
+						.text("Season" + i)
+		}
 
 		canvas2.selectAll(".data_rate")
 			  .data(data)
@@ -211,8 +223,8 @@
 			  		  .attr("cx", function(d) {return width_scale(d.No)+6})
 			  		  .attr("cy", function(d) {return height_scale2(d.rate
 )})
-			  		  .attr("r", 4)
-			  		  .style("fill", function(d) {return color(d.Season) })
+			  		  .attr("r", 5)
+			  		  .style("fill", function(d) {return "white" })
 			  		  .on("mouseover", tip2.show)
 			  		  .on("mouseout", tip2.hide)
 		

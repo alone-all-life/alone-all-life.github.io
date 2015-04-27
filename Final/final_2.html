@@ -102,8 +102,10 @@
     var tip = d3.tip()
 		.attr('class', 'd3-tip')
 		.offset([-10, 0])
-		.html(function(d) {
-	    	return Math.round(d.rate*100)/100
+		.html(function(d, i) {
+	    	return "<strong>Age : </strong>" + i + "<br/>"
+	    		   +"<strong>Rate : </strong>" + Math.round(d.rate*100)/100
+
 	  	})
 
     var canvas = d3.select("#dis_1_right_side").append("svg")
@@ -190,7 +192,7 @@
 
 	d3.selectAll(".cb").on("click", function change() {
 		var str = d3.select(this).attr("sid")
-		var my_lines = d3.selectAll(".lines" + str).transition().duration(500)
+		var my_lines = d3.selectAll(".lines" + str)
 						 .attr("stroke-width", function(d,j) {
 						 	if (j == 0) j = 1
 						 	var wd = d3.select(this).attr("stroke-width")
@@ -198,7 +200,7 @@
 						 	return 2
 						 })
 
-		var my_points = d3.selectAll(".points" + str).transition().duration(750)
+		var my_points = d3.selectAll(".points" + str)
 						 .attr("r", function(d,j) {
 						 	if (j == 0) j = 1
 						 	var wd = d3.select(this).attr("r")
