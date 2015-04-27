@@ -67,10 +67,10 @@
 	        </div>
 	        <div class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	            <li class="active"><a href="./final_1.html">One</a></li>
-	            <li><a href="./final_2.html">Two</a></li>
-	            <li><a href="./final_3.html">Three</a></li>
-	            <li><a href="./final_4.html">Four</a></li>
+	            <li class="active"><a href="./final_1.html"><strong>WorldMap</strong></a></li>
+	            <li><a href="./final_2.html"><strong>SurvivalRate</strong></a></li>
+	            <li><a href="./final_3.html"><strong>Ratings</strong></a></li>
+	            <li><a href="./final_4.html"><strong>Popularity</strong></a></li>
 	          </ul>
 	          <div class="navbar-form navbar-right">
 	          </div>
@@ -80,7 +80,10 @@
 	<div class="container-fluid">
 	  	<div class="row">
 	  		<div class="col-sm-6 col-md-6 my_container">
-				<div id="dispaly_1"></div>
+				<div id="dispaly_1">
+				   <h2>  Original Westeros World Map</h2>
+				   <P>Hover on the map circles to see details about Houses.</p>
+				 </div>
 	  		</div>
 	  		<div class="col-sm-6 col-md-6 my_right_side">
 	  			<div id="dis_1_right_side">
@@ -262,7 +265,7 @@
 				// console.log(data.House_Name, o[i].House)
 				if (o[i].House === data.House_Name) {
 					var intro = document.getElementById("intro")
-					intro.innerHTML = "<strong>Name : </strong>"+o[i].Name+"<br/>"
+					intro.innerHTML = "<strong>Representative Name : </strong>"+o[i].Name+"<br/>"
 								     +"<strong>Starring Seasons : </strong>" + o[i].Starring + "<br/>"
 								     +"<strong>Episode count : </strong>" + o[i].Episode + "<br/>"
 								     +"<strong>Introduction : </strong>" + o[i].Introduction
