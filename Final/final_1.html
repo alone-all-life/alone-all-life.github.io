@@ -86,7 +86,7 @@
 	  			<div id="dis_1_right_side">
 	  				<div id="logo" align="left" onclick="show_modal()"></div>
 	  				<div id="meta" align= "left"></div>
-	  				<div id="intro"></div>
+	  				<div id="intro" style="margin-top:350px"></div>
 	  			</div>
 	  		</div>
 	  	</div>
@@ -151,8 +151,7 @@
 
 	canvas.call(tip);
 
-	var right_side = d3.select("#dis_1_right_side").append("div")
-					   .attr("id", "display_part")
+	
 
 	var House_list = ["Baratheon", "Greyjoy", "Lannister", "Stark", "Targaryen", "Tyrell","Ayrrn","Martell","Tully"]
 	canvas.append("rect")
@@ -239,7 +238,7 @@
 							  	      		show_right_side(d)
 							  	      })
 							  	      .on("mouseout", function(d) {
-							  	      		d3.selectAll(".house_data_point").attr("r", 30)
+							  	      		d3.selectAll(".house_data_point").attr("r", 20)
 							  	      })
 
 
@@ -257,8 +256,19 @@
 						+"<br/><strong>Castle : </strong>" + data.Castle
 						+"<br/><strong>Region : </strong>" + data.Region
 		                +"<br/><strong>Words : </strong>" + data.House_Words
-			
-
+		console.log(data)
+		d3.csv("./final_data/[1]main_character.csv", function(error, o) {
+			for (var i=0; i<o.length; i++) {
+				// console.log(data.House_Name, o[i].House)
+				if (o[i].House === data.House_Name) {
+					var intro = document.getElementById("intro")
+					intro.innerHTML = "<strong>Name : </strong>"+o[i].Name+"<br/>"
+								     +"<strong>Starring Seasons : </strong>" + o[i].Starring + "<br/>"
+								     +"<strong>Episode count : </strong>" + o[i].Episode + "<br/>"
+								     +"<strong>Introduction : </strong>" + o[i].Introduction
+				}
+			}
+		})
 
 	}
 	
