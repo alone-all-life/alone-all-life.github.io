@@ -50,6 +50,16 @@
 	          </button>
 	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">Alone All Life - IE590 - Project Team</a>
 	        </div>
+	        <div class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="./final_1.html">One</a></li>
+	            <li class="active"><a href="./final_2.html">Two</a></li>
+	            <li><a href="./final_3.html">Three</a></li>
+	            <li><a href="./final_4.html">Four</a></li>
+	          </ul>
+	          <div class="navbar-form navbar-right">
+	          </div>
+	        </div>
     	</div>
 	</div>
 	<div class="container-fluid">
@@ -91,7 +101,6 @@
 
     var tip = d3.tip()
 		.attr('class', 'd3-tip')
-		.style('background', "#aaaaaa")
 		.offset([-10, 0])
 		.html(function(d) {
 	    	return Math.round(d.rate*100)/100

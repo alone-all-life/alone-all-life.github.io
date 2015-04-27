@@ -48,6 +48,16 @@
 	          </button>
 	          <a class="navbar-brand" style="color:#ffffff;font-weight:900" href="/">Alone All Life - IE590 - Project On Game of Thrones</a>
 	        </div>
+	        <div class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="./final_1.html">One</a></li>
+	            <li><a href="./final_2.html">Two</a></li>
+	            <li class="active"><a href="./final_3.html">Three</a></li>
+	            <li><a href="./final_4.html">Four</a></li>
+	          </ul>
+	          <div class="navbar-form navbar-right">
+	          </div>
+	        </div>
     	</div>
 	</div>
 	
@@ -72,7 +82,6 @@
 
 	var tip = d3.tip()
 		.attr('class', 'd3-tip')
-		.style('background', "#aaaaaa")
 		.offset([-10, 0])
 		.html(function(d) {
 	    	return d.Title+"<br>"+d.US_Viewers
@@ -80,7 +89,6 @@
 
 	var tip2 = d3.tip()
 		.attr('class', 'd3-tip')
-		.style('background', "#aaaaaa")
 		.offset([-10, 0])
 		.html(function(d) {
 	    	return d.Title+"<br>"+d.rate
@@ -89,11 +97,11 @@
 
 	var color = d3.scale.category10()
 
-	var margin = {top: 80, right: 20, bottom: 50, left: 150},
+	var margin = {top: 0, right: 20, bottom: 20, left: 150},
     width = 1000 - margin.left - margin.right
     width2 = 1000 - margin.left - margin.right
-    height = 450 - margin.top - margin.bottom
-    height2 = 250 - margin.top- margin.bottom
+    height = 350 - margin.top - margin.bottom
+    height2 = 200 - margin.top- margin.bottom
     
     // canvas, svg
 	var canvas = d3.select("#display_1").append("svg")
