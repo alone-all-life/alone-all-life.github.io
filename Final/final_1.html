@@ -84,7 +84,7 @@
 	  		</div>
 	  		<div class="col-sm-6 col-md-6 my_right_side">
 	  			<div id="dis_1_right_side">
-	  				<div id="logo" align="left" onclick="show_modal()"></div>
+	  				<div id="logo" align="left"></div>
 	  				<div id="meta" align= "left"></div>
 	  				<div id="intro"></div>
 	  			</div>
@@ -206,37 +206,40 @@
 							  .data(data)
 							  .enter().append("circle")
 							  	      .attr("cx", function(d) {
-									   if(d.House_Name=="Stark") return 230;
-									   if(d.House_Name=="Lannister") return 160 ;
-									   if(d.House_Name=="Baratheon") return 320;
-									   if(d.House_Name=="Ayrrn") return 310;
-									  if(d.House_Name=="Martell") return  230;
-									  if(d.House_Name=="Tully") return 225;
-									  if(d.House_Name=="Greyjoy") return 130;
-									  if(d.House_Name=="Tyrell") return 200;
-									  if(d.House_Name=="Targaryen") return 350;
-									  
+									  //  if(d.House_Name=="Stark") return 230;
+									  //  if(d.House_Name=="Lannister") return 160 ;
+									  //  if(d.House_Name=="Baratheon") return 320;
+									  //  if(d.House_Name=="Ayrrn") return 310;
+									  // if(d.House_Name=="Martell") return  230;
+									  // if(d.House_Name=="Tully") return 225;
+									  // if(d.House_Name=="Greyjoy") return 130;
+									  // if(d.House_Name=="Tyrell") return 200;
+									  // if(d.House_Name=="Targaryen") return 350;
+									  return d.x
 									})
 							  	      .attr("cy", function(d) {  
-									  if(d.House_Name=="Stark") return 100;
-									   if(d.House_Name=="Lannister") return 350;
-									   if(d.House_Name=="Baratheon") return 460;
-									   if(d.House_Name=="Ayrrn") return 240;
-									  if(d.House_Name=="Martell") return 550;
-									  if(d.House_Name=="Tully") return 300;
-									  if(d.House_Name=="Greyjoy") return 250;
-									  if(d.House_Name=="Tyrell") return 440;
-									  if(d.House_Name=="Targaryen") return 350;})
+									  // if(d.House_Name=="Stark") return 100;
+									  //  if(d.House_Name=="Lannister") return 350;
+									  //  if(d.House_Name=="Baratheon") return 460;
+									  //  if(d.House_Name=="Ayrrn") return 240;
+									  // if(d.House_Name=="Martell") return 550;
+									  // if(d.House_Name=="Tully") return 300;
+									  // if(d.House_Name=="Greyjoy") return 250;
+									  // if(d.House_Name=="Tyrell") return 440;
+									  // if(d.House_Name=="Targaryen") return 350;
+									  return d.y
+									})
 							  	      .attr("class", "house_data_point")
-							  	      .attr("r", 30)
+							  	      .attr("r", 20)
 							  	      .attr("fill", function(d) {return color(d.House_Name)})
-							  	      .on("mouseover", tip.show)
-							  	      .on("mouseout", tip.hide)
 							  	      .on("mouseover", function(d) {
 									        tip.show;
-							  	      		var circle = d3.selectAll(".house_data_point").attr("r", "26")
+							  	      		var circle = d3.selectAll(".house_data_point").attr("r", "10")
 							  	      		var cir = d3.select(this).attr("r", "34")
 							  	      		show_right_side(d)
+							  	      })
+							  	      .on("mouseout", function(d) {
+							  	      		d3.selectAll(".house_data_point").attr("r", 30)
 							  	      })
 
 
