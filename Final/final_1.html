@@ -189,7 +189,7 @@
 					    .attr('height', pic_height)
 					    .append("image")
 					    .attr("xlink:href", "../img/map[1].jpg")
-					    .style("opacity", "0.4")
+					    .style("opacity", "0.9")
 					    .attr('width', pic_width)
 					    .attr('height', pic_height);
 
@@ -233,7 +233,22 @@
 									})
 							  	      .attr("class", "house_data_point")
 							  	      .attr("r", 20)
-							  	      .attr("fill", function(d) {return color(d.House_Name)})
+							  	      .attr("fill", function(d) {
+									  if(d.House_Name=="Stark" )return "black";
+									  if(d.House_Name=="Lannister") return "red";
+									   if(d.House_Name=="Baratheon") return "yellow";
+									   if(d.House_Name=="Arryn") return "purple";
+									  if(d.House_Name=="Martell") return "grey";
+									   if(d.House_Name=="Tully") return "blue";
+									  if(d.House_Name=="Greyjoy") return "Indigo"  ;
+									  if(d.House_Name=="Tyrell") return "green";
+									   if(d.House_Name=="Targaryen") return "orange";
+									  
+									  
+									  
+									  
+									  
+									  })
 							  	      .on("mouseover", function(d) {
 									        tip.show;
 							  	      		var circle = d3.selectAll(".house_data_point").attr("r", "10")
