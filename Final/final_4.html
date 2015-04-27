@@ -230,7 +230,7 @@ d3.csv("./final_data/[4]WebSearchinterestbycountryScale-1-100.csv", function(err
       var mouse = d3.mouse(svg.node()).map( function(d) {return parseInt(d); } );
 
       tooltip.classed("hidden", false)
-             .attr("style", "left:"+(mouse[0]+offsetL)+"px;top:"+(mouse[1]+offsetT)+"px")
+             .attr("style", "left:"+(mouse[0]+offsetL-120)+"px;top:"+(mouse[1]+offsetT)+"px")
              .html(d.properties.name + "<br/>" + "web_search : "+ d.web_search);
       })
       .on("mouseout",  function(d,i) {
